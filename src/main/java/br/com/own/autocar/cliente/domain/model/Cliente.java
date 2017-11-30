@@ -7,8 +7,8 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -29,11 +29,11 @@ public class Cliente {
 
     @Column(name = "data_registro")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataRegistro;
+    private LocalDateTime dataRegistro;
 
     @Column(name = "ultima_modificacao")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date ultimaAtualizacao;
+    private LocalDateTime ultimaAtualizacao;
 
     @OneToMany(mappedBy = "cliente")
     private Collection<ContratoLocacao> contrato;

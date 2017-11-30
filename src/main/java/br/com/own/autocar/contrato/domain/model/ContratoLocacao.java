@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -28,14 +28,14 @@ public class ContratoLocacao {
 
     @Column(name = "data_registro")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataEfetivacao;
+    private LocalDateTime dataEfetivacao;
 
     @Column(name = "data_inicio")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataInicio;
+    private LocalDateTime dataInicio;
 
     @Column(name = "data_fim")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataFim;
+    private LocalDateTime dataFim;
 
 }

@@ -1,19 +1,29 @@
 package br.com.own.autocar.contrato.domain.model;
 
-import lombok.Data;
+import lombok.Getter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-import static br.com.own.autocar.utility.date.DateUtil.isPrimeiraDataMenorQueSegunda;
+import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.Validate.validState;
 
-@Data
+@Getter
 public class InformacaoComplementar {
 
-    private Date dataInicio;
-    private Date dataFim;
+    private LocalDateTime dataInicio;
+    private LocalDateTime dataFim;
+
+    public InformacaoComplementar(LocalDateTime dataInicio, LocalDateTime dataFim) {
+        requireNonNull(dataInicio);
+        requireNonNull(dataFim);
+        validState(isVigenciaValida(), "O Periodo informado e invalido!!");
+
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+    }
 
     public boolean isVigenciaValida(){
-       return isPrimeiraDataMenorQueSegunda(dataInicio , dataFim);
+       return dataInicio.isBefore(dataFim);
     }
 
 }

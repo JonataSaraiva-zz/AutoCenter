@@ -23,11 +23,11 @@ public class Veiculo {
 
     @Column(name = "data_registro")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataRegistro;
+    private LocalDateTime dataRegistro;
 
     @Column(name = "ultima_modificacao")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date ultimaAtualizacao;
+    private LocalDateTime ultimaAtualizacao;
 
     @OneToOne(mappedBy = "veiculo")
     private ContratoLocacao contrato;
