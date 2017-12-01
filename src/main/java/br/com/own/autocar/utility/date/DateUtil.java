@@ -1,11 +1,11 @@
 package br.com.own.autocar.utility.date;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class DateUtil {
 
-    public static LocalDateTime getDataAtual(){
-        return LocalDateTime.now();
+    public static Date getDataAtual(){
+        return new Date();
     }
 
 }
